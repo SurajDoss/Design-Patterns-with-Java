@@ -10,9 +10,8 @@ public class Main {
 
     private static void executeAbstractFactoryPattern(){
         System.out.println("Abstract Factory Pattern");
-        boolean needToyota = Boolean.TRUE;
-        ICar car = needToyota ? new ToyotaVellFire() : new TeslaModelS();
 
+        ICar car = CarFactory.carFactory(CarFactory.Cartype.Tesla);
         CarSuggestor carSuggestor = new CarSuggestor(car);
         carSuggestor.whatCarsIsThis();
     }
