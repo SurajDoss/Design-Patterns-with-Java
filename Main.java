@@ -2,6 +2,8 @@ import AbstractFactoryPattern.*;
 import MomentoPattern.Editor;
 import MomentoPattern.History;
 import SingletonPattern.ConfigurationManagement;
+import StateDesignPattern.BrushTool;
+import StateDesignPattern.Canvas;
 
 import java.util.Properties;
 
@@ -9,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         //executeAbstractFactoryPattern();
         //executeSingletonPattern();
-        executeMomentoPatter();
+//        executeMomentoPatter();
+        StatePattern();
     }
 
     private static void executeAbstractFactoryPattern(){
@@ -46,5 +49,13 @@ public class Main {
         editor.restore(history.pop());
 
         System.out.println(editor.getContent());
+    }
+
+    private static void StatePattern(){
+        var canvas = new Canvas();
+        canvas.setCurrentTool(new BrushTool());
+        canvas.mouseDown();
+        canvas.mouseUp();
+
     }
 }
